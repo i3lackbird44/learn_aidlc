@@ -1,0 +1,1 @@
+"สร้าง Prototype แอป IT Incident Management ตาม mission.md และ success-criteria.md: สร้าง Incident (Title, Description, Priority), ดูรายการ Incident, ปรับสถานะ Open / In Progress / Resolved, แสดง Priority Low / Medium / High, และแจ้ง feedback เมื่อกรอกข้อมูลไม่ครบหรือไม่ถูกต้อง ภายใน 70 นาที ไม่รวม production deployment, enterprise auth, cloud, external AI API"
