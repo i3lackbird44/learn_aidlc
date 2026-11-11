@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IT Incident Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>IT Incident Tracker</h1>
+  </header>
+
+  <div id="alert-bar" class="alert-bar" data-testid="alert-bar" role="alert" hidden></div>
+  <div id="toast" class="toast" data-testid="toast" role="status" hidden></div>
+
+  <main>
+    <section class="card" aria-labelledby="create-heading">
+      <h2 id="create-heading">สร้าง Incident</h2>
+      <form id="create-form" data-testid="create-form" novalidate>
+        <label>Title
+          <input type="text" name="title" data-testid="input-title" maxlength="200">
+          <span class="field-error" data-testid="error-title" data-error-for="title"></span>
+        </label>
+        <label>Description
+          <textarea name="description" data-testid="input-description" rows="2" maxlength="2000"></textarea>
+          <span class="field-error" data-testid="error-description" data-error-for="description"></span>
+        </label>
+        <label>Priority
+          <select name="priority" data-testid="input-priority">
+            <option value="">-- เลือก --</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+          <span class="field-error" data-testid="error-priority" data-error-for="priority"></span>
+        </label>
+        <label>Owner
+          <input type="text" name="owner" data-testid="input-owner" maxlength="100">
+          <span class="field-error" data-testid="error-owner" data-error-for="owner"></span>
+        </label>
+        <button type="submit" data-testid="btn-create">บันทึก</button>
+      </form>
+    </section>
+
+    <section class="card" aria-labelledby="list-heading">
+      <h2 id="list-heading">รายการ Incident</h2>
+      <div class="filters">
+        <input type="search" id="search" data-testid="input-search" placeholder="ค้นหา Title / Description" maxlength="200">
+        <select id="filter-status" data-testid="filter-status">
+          <option value="">ทุก Status</option>
+          <option value="Open">Open</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Resolved">Resolved</option>
+        </select>
+        <select id="filter-priority" data-testid="filter-priority">
+          <option value="">ทุก Priority</option>
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
+        </select>
+      </div>
+
+      <p id="empty-message" data-testid="empty-message" hidden></p>
+      <ul id="incident-list" class="incident-list" data-testid="incident-list"></ul>
+
+      <nav class="pager" aria-label="แบ่งหน้า">
+        <button type="button" id="btn-prev" data-testid="btn-prev">หน้าก่อน</button>
+        <span id="page-label" data-testid="page-label"></span>
+        <button type="button" id="btn-next" data-testid="btn-next">หน้าถัดไป</button>
+      </nav>
+    </section>
+
+    <section class="card" id="history-panel" data-testid="history-panel" hidden aria-labelledby="history-heading">
+      <h2 id="history-heading">ประวัติการเปลี่ยนแปลง</h2>
+      <ul id="history-list" data-testid="history-list"></ul>
+      <button type="button" id="btn-close-history" data-testid="btn-close-history">ปิด</button>
+    </section>
+  </main>
+
+  <script src="ui.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

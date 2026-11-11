@@ -1,0 +1,20 @@
+{
+  "name": "incident-app",
+  "version": "1.0.0",
+  "description": "IT Incident Tracker (Prototype)",
+  "main": "src/server.js",
+  "private": true,
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test tests/validation.test.js tests/store.test.js tests/service.test.js tests/api.test.js tests/ui.test.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "supertest": "^7.0.0"
+  }
+}
